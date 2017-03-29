@@ -14,7 +14,7 @@ class phoenix::install (
     $mirror = lookup( "mirrors.apache.${fqdn_rand(10)}" )
     $checksum = lookup( 'checksums.phoenix' )["${phoenix_version}-HBase-${mm}"]['sha256']
 
-    if ($facts['hbase']['phoenix']['installed'] == true) and ($facts['hbase']['phoenix']['version'] == $phoenix_version) {
+    if ($facts['phoenix']['installed'] == true) and ($facts['phoenix']['version'] == $phoenix_version) {
 
       file {"/var/tmp/apache-phoenix-${phoenix_version}-HBase-${mm}-bin.tar.gz":
         ensure => 'absent',
